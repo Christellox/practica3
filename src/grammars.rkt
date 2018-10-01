@@ -19,7 +19,13 @@
 ;; Función que calcula el módulo de forma multiparamétrica.
 ;; mmodulo: number number ... -> number
 (define (mmodulo . args)
-    #| Aquí va su código. |#)
+   (mmoduloAux (car args) (cdr args)))
+
+;Funcion auxiliar para calcular el mmodulo 
+(define (mmoduloAux m args)
+  (cond
+    [(empty? args) m]
+    [else (mmoduloAux (modulo m (car args)) (cdr args))]))
 
 ;; Función que calcula el módulo de forma multiparamétrica.
 ;; mmexpt: number number ... -> number
